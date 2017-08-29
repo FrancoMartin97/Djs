@@ -19,8 +19,10 @@ object berghain {
 	}
 	
 	method cambiarDePista(unaPersona,pistaAnterior,pistaNueva){
+		if(self.entrarAlBoliche(unaPersona)){
 		pistaAnterior.salirDeLaPista(unaPersona);
 		pistaNueva.entrarEnLaPista(unaPersona);
+		}
 	}
 	
 	method todosBailan(dj){
