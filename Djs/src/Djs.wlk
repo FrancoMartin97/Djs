@@ -15,14 +15,18 @@ object berghain {
 	method entrarAlBoliche(unaPersona){
 		if(patovaDeTurno.controlarSiPuedePasar(unaPersona)){
 			personasDentroDelBoliche.add(unaPersona);
+			return true;
+			}else{
+			return false
+			}
 		}
-	}
+
 	
-	method cambiarDePista(unaPersona,pistaAnterior,pistaNueva){
+	method cambiarDePista(unaPersona,pistaNueva){
 		if(personasDentroDelBoliche.elem(unaPersona)){
-		pistaAnterior.salirDeLaPista(unaPersona);
-		pistaNueva.entrarEnLaPista(unaPersona);
-		}
+		var pistaASalir = unaPersona.darPistaActual();
+		unaPersona.salirDeLaPista(pistaASalir);
+		pistaNueva.entrarEnLaPista(unaPersona);}
 	}
 	
 	method todosBailan(dj){
@@ -40,6 +44,15 @@ object vonLuka{
 	var diversion = 70;
 	var edad = 17;
 	var remeraNegra = false;
+	var pistaActual;
+	
+	method darPistaActual(){
+		return pistaActual;
+	}
+	
+	method modificarPistaActual(unaPista){
+		pistaActual = unaPista;
+	}
 	
 	method esMayor(){
 		return edad>21
@@ -61,6 +74,15 @@ object bianker {
 	var diversion = 80;
 	var edad = 22;
 	var remeraNegra = true;
+	var pistaActual;
+	
+	method darPistaActual(){
+		return pistaActual;
+	}
+	
+	method modificarPistaActual(unaPista){
+		pistaActual = unaPista;
+	}
 	
 	method esMayor(){
 		return edad>21
@@ -82,6 +104,15 @@ object gonzen {
 	var diversion = 15;
 	var edad = 33;
 	var remeraNegra = true;
+	var pistaActual;
+	
+	method darPistaActual(){
+		return pistaActual;
+	}
+	
+	method modificarPistaActual(unaPista){
+		pistaActual = unaPista;
+	}
 	
 	method esMayor(){
 		return edad>21;
@@ -125,6 +156,7 @@ object mainRoom {
 	
 	method entrarEnLapista(unaPersona){
 		personasDeLaPista.add(unaPersona);
+		unaPersona.modificiarPistaActual(self);
 	}
 	
 	method bailarEnLaPista(unDj){
@@ -142,6 +174,7 @@ object panoramaBar {
 	
 	method entrarEnLapista(unaPersona){
 		personasDeLaPista.add(unaPersona);
+		unaPersona.modificiarPistaActual(self);
 	}
 	
 	method bailarEnLaPista(unDj){
@@ -159,6 +192,7 @@ object darkRoom {
 	
 	method entrarEnLapista(unaPersona){
 		personasDeLaPista.add(unaPersona);
+		unaPersona.modificiarPistaActual(self);
 	}
 	
 	method bailarEnLaPista(unDj){
