@@ -26,7 +26,8 @@ object berghain {
 		if(personasDentroDelBoliche.elem(unaPersona)){
 		var pistaASalir = unaPersona.darPistaActual();
 		unaPersona.salirDeLaPista(pistaASalir);
-		pistaNueva.entrarEnLaPista(unaPersona);}
+		pistaNueva.entrarEnLaPista(unaPersona);
+		unaPersona.modificarPistaActual(pistaNueva);}
 	}
 	
 	method todosBailan(dj){
