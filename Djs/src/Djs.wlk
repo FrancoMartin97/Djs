@@ -19,7 +19,7 @@ object berghain {
 	}
 	
 	method cambiarDePista(unaPersona,pistaAnterior,pistaNueva){
-		if(self.entrarAlBoliche(unaPersona)){
+		if(personasDentroDelBoliche.elem(unaPersona)){
 		pistaAnterior.salirDeLaPista(unaPersona);
 		pistaNueva.entrarEnLaPista(unaPersona);
 		}
